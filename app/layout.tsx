@@ -1,8 +1,17 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Kaushan_Script } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const kaushan_script = Kaushan_Script({
+   subsets: ["latin"],
+   weight: ["400"],
+});
+
+const inter = Inter({
+   subsets: ["latin"],
+   weight: ["400", "500", "600"],
+});
 
 export const metadata: Metadata = {
    title: "Comfy store",
@@ -16,7 +25,11 @@ export default function RootLayout({
 }>) {
    return (
       <html lang="en">
-         <body className={inter.className}>{children}</body>
+         <body
+            className={`${inter.className} ${kaushan_script.className}`}
+         >
+            {children}
+         </body>
       </html>
    );
 }
